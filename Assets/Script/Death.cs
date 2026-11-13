@@ -4,11 +4,10 @@ using UnityEngine.SceneManagement;
 public class Death : MonoBehaviour
 {
     [Header("UI Settings")]
-    [SerializeField] private GameObject gameOverPanel; // Kéo GameOverPanel vào đây
+    [SerializeField] private GameObject gameOverPanel;
 
     private void Start()
     {
-        // Đảm bảo vừa bấm Play là ẩn GameOver UI đi
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);
@@ -41,6 +40,7 @@ public class Death : MonoBehaviour
 
     public void ResetScene()
     {
+        Menu.skipMenu = true;
         Scene activeScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(activeScene.buildIndex);
     }
